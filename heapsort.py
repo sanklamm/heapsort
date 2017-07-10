@@ -16,10 +16,12 @@ def Heapify(A, i, end):
         A[i], A[largest] = A[largest], A[i]
         Heapify(A, largest, end)
 
+
 def BuildMaxHeap(A):
-    x = int((len(A)-2) / 2)
+    x = int((len(A) - 2) / 2)
     for i in range(x, -1, -1):
         Heapify(A, i, len(A))
+
 
 def HeapSort(A):
     solution = []
@@ -27,7 +29,7 @@ def HeapSort(A):
     BuildMaxHeap(A)
     solution.append(A)
     print(*A, sep=' ', end='')
-    for i in range(len(A)-1, 0, -1):
+    for i in range(len(A) - 1, 0, -1):
         A[0], A[i] = A[i], A[0]
         Heapify(A, 0, i)
         print(' | ', end='')
@@ -37,4 +39,3 @@ def HeapSort(A):
 for line in stdin:
     H = [int(elem) for elem in line.split()]
     HeapSort(H)
-
